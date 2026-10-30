@@ -42,10 +42,31 @@ mechanism*. The engine:
 measures how often truthful revelation is optimal. It also identifies the
 cases where the theoretical condition and actual behaviour disagree.
 
+## Getting Started
+
+```bash
+git clone https://github.com/SreenityaThatikunta/argumentation-engine.git
+cd argumentation-engine
+python3 -m venv .venv && source .venv/bin/activate
+pip install -e ".[dev]"
+pytest
+```
+
+```python
+from argumentation import ArgumentationFramework
+
+af = ArgumentationFramework(
+    ["a1", "a2", "a3", "a4", "a5"],
+    [("a2", "a1"), ("a4", "a1"), ("a3", "a2"), ("a5", "a4")],
+)
+af.characteristic({"a3", "a5"})       # frozenset({'a1', 'a3', 'a5'})
+af.is_complete({"a1", "a3", "a5"})    # True
+```
+
 ## Roadmap
 
-- [ ] Argumentation framework: conflict-freeness, defence, characteristic function
-- [ ] Admissible and complete set checks
+- [x] Argumentation framework: conflict-freeness, defence, characteristic function
+- [x] Admissible and complete set checks
 - [ ] Grounded, complete, preferred, stable and semi-stable extensions
 - [ ] Labelling enumeration and argument acceptance status
 - [ ] Grounded direct argumentation mechanism and best-response search
