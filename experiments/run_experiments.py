@@ -35,10 +35,9 @@ def generate_instance(rng: random.Random, p: float, sizes: range, self_attacks: 
     n = rng.choice(sizes)
     args = [f"a{i}" for i in range(1, n + 1)]
     attacks = sorted(
-        (a, b) for a in args for b in args
-        if (self_attacks or a != b) and rng.random() < p
+        (a, b) for a in args for b in args if (self_attacks or a != b) and rng.random() < p
     )
-    types = {agent: [] for agent in AGENTS}
+    types: dict[str, list[str]] = {agent: [] for agent in AGENTS}
     for a in args:
         types[rng.choice(AGENTS)].append(a)
     return args, attacks, types
@@ -62,7 +61,7 @@ def explain_strategyproof(game: Game, violations: list[tuple]) -> str:
     for i in agents:
         others = [a for a in game.types if a != i]
         for combo in product(*(list(subsets(game.types[a])) for a in others)):
-            fixed = dict(zip(others, combo))
+            fixed = dict(zip(others, combo, strict=True))
             truthful = game.outcome({**fixed, i: game.types[i]})
             for report in subsets(game.types[i]):
                 gained = (game.outcome({**fixed, i: report}) - truthful) & game.types[i]
@@ -81,7 +80,7 @@ def evaluate(instance_id: int, p: float, args, attacks, types) -> dict:
         "attacks": attacks,
         "types": types,
         "strategyproof": witness is None,
-        "truthful_outcome": sorted(game.outcome(types)),
+        "truthful_outcome": sorted(game.outcome(types), key=str),
     }
     if witness is not None:
         record["manipulation"] = {
@@ -106,8 +105,12 @@ def summarise(records: list[dict], ps: list[float]) -> list[dict]:
     for p in ps:
         rs = [r for r in records if r["p"] == p]
         sp = [r for r in rs if r["strategyproof"]]
-        row = {"p": p, "instances": len(rs), "strategyproof": len(sp),
-               "strategyproof_fraction": round(len(sp) / len(rs), 4)}
+        row = {
+            "p": p,
+            "instances": len(rs),
+            "strategyproof": len(sp),
+            "strategyproof_fraction": round(len(sp) / len(rs), 4),
+        }
         for mode in PATH_MODES:
             cond = [r for r in rs if r[f"thm54_{mode}"]]
             row[f"thm54_{mode}"] = len(cond)
@@ -146,7 +149,9 @@ def write_outputs(out: Path, records: list[dict], rows: list[dict], config: dict
         (r for r in records if "q3_reason" in r),
         key=lambda r: (len(r["attacks"]) + r["n"], r["id"]),
     )
-    sample = {reason: [r for r in q3 if r["q3_reason"] == reason][:Q3_SAMPLE] for reason in Q3_REASONS}
+    sample = {
+        reason: [r for r in q3 if r["q3_reason"] == reason][:Q3_SAMPLE] for reason in Q3_REASONS
+    }
     (out / "q3_examples.json").write_text(json.dumps(sample, indent=1) + "\n")
 
     _plot(out, rows)
@@ -165,9 +170,24 @@ def _plot(out: Path, rows: list[dict]) -> None:
     ps = [r["p"] for r in rows]
     n = [r["instances"] for r in rows]
     fig, ax = plt.subplots(figsize=(6.5, 4))
-    ax.plot(ps, [r["strategyproof"] / k for r, k in zip(rows, n)], "o-", label="Strategyproof (Thm 5.3)")
-    ax.plot(ps, [r["thm54_walk"] / k for r, k in zip(rows, n)], "s--", label="Thm 5.4 condition (walks)")
-    ax.plot(ps, [r["thm54_simple"] / k for r, k in zip(rows, n)], "^:", label="Thm 5.4 condition (simple paths)")
+    ax.plot(
+        ps,
+        [r["strategyproof"] / k for r, k in zip(rows, n, strict=True)],
+        "o-",
+        label="Strategyproof (Thm 5.3)",
+    )
+    ax.plot(
+        ps,
+        [r["thm54_walk"] / k for r, k in zip(rows, n, strict=True)],
+        "s--",
+        label="Thm 5.4 condition (walks)",
+    )
+    ax.plot(
+        ps,
+        [r["thm54_simple"] / k for r, k in zip(rows, n, strict=True)],
+        "^:",
+        label="Thm 5.4 condition (simple paths)",
+    )
     ax.set_xlabel("Attack probability p")
     ax.set_ylabel("Fraction of instances")
     ax.set_ylim(0, 1.02)
@@ -181,19 +201,23 @@ def _plot(out: Path, rows: list[dict]) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
     parser.add_argument("--instances", type=int, default=1000, help="instances per value of p")
     parser.add_argument("--p", type=float, nargs="+", default=[0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5])
     parser.add_argument("--min-args", type=int, default=6)
     parser.add_argument("--max-args", type=int, default=8)
-    parser.add_argument("--self-attacks", action="store_true", help="allow arguments to attack themselves")
+    parser.add_argument(
+        "--self-attacks", action="store_true", help="allow arguments to attack themselves"
+    )
     parser.add_argument("--seed", type=int, default=2026)
     parser.add_argument("--out", type=Path, default=Path("results"))
     opts = parser.parse_args()
 
     rng = random.Random(opts.seed)
     sizes = range(opts.min_args, opts.max_args + 1)
-    records = []
+    records: list[dict] = []
     start = time.perf_counter()
     for p in opts.p:
         for _ in range(opts.instances):

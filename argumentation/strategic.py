@@ -17,14 +17,16 @@ from dataclasses import dataclass
 from functools import lru_cache
 from itertools import chain, combinations, product
 
-from argumentation.framework import Argument, Attack, ArgumentationFramework
+from argumentation.framework import Argument, ArgumentationFramework, Attack
 from argumentation.semantics import Extension, grounded
 
 Agent = Hashable
 Profile = Mapping[Agent, Iterable[Argument]]
 
 
-def induced_framework(attacks: Iterable[Attack], arguments: Iterable[Argument]) -> ArgumentationFramework:
+def induced_framework(
+    attacks: Iterable[Attack], arguments: Iterable[Argument]
+) -> ArgumentationFramework:
     """The subgraph on ``arguments``: only attacks between them survive."""
     arguments = frozenset(arguments)
     return ArgumentationFramework(
@@ -109,7 +111,7 @@ class Game:
             truth = self.types[i]
             others = [a for a in self.types if a != i]
             for combo in product(*(list(subsets(self.types[a])) for a in others)):
-                fixed = dict(zip(others, combo))
+                fixed = dict(zip(others, combo, strict=True))
                 truthful = self.utility(i, {**fixed, i: truth})
                 for report in subsets(truth):
                     gained = self.utility(i, {**fixed, i: report})
@@ -204,7 +206,12 @@ def theorem_5_4_violations(
     types = {agent: frozenset(args) for agent, args in types.items()}
     defeats = indirect_defeats(attacks, frozenset().union(*types.values()), paths)
     return sorted(
-        ((agent, a, b) for agent, own in types.items() for a, b in defeats if a in own and b in own),
+        (
+            (agent, a, b)
+            for agent, own in types.items()
+            for a, b in defeats
+            if a in own and b in own
+        ),
         key=lambda t: tuple(map(str, t)),
     )
 

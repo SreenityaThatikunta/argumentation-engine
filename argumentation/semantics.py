@@ -79,15 +79,15 @@ def extensions(af: ArgumentationFramework, semantics: str) -> list[Extension]:
     try:
         return SEMANTICS[semantics](af)
     except KeyError:
-        raise ValueError(f"unknown semantics {semantics!r}; choose from {sorted(SEMANTICS)}") from None
+        raise ValueError(
+            f"unknown semantics {semantics!r}; choose from {sorted(SEMANTICS)}"
+        ) from None
 
 
-def _maximal(
-    candidates: list[Extension], key: Callable[[Extension], frozenset]
-) -> list[Extension]:
+def _maximal(candidates: list[Extension], key: Callable[[Extension], frozenset]) -> list[Extension]:
     keys = [key(c) for c in candidates]
     return _sorted(
-        c for c, k in zip(candidates, keys) if not any(k < other for other in keys)
+        c for c, k in zip(candidates, keys, strict=True) if not any(k < other for other in keys)
     )
 
 

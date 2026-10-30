@@ -75,9 +75,7 @@ class TestCharacteristicFunction:
 
 
 class TestAdmissibleAndComplete:
-    @pytest.mark.parametrize(
-        "s", [set(), {"a3"}, {"a5"}, {"a3", "a5"}, {"a1", "a3", "a5"}]
-    )
+    @pytest.mark.parametrize("s", [set(), {"a3"}, {"a5"}, {"a3", "a5"}, {"a1", "a3", "a5"}])
     def test_example_5_5_admissible_sets(self, fig51, s):
         assert fig51.is_admissible(s)
 

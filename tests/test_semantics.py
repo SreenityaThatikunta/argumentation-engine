@@ -33,8 +33,7 @@ def semi_stable_differs():
     """
     return ArgumentationFramework(
         ["a", "b", "c", "x", "y", "z"],
-        [("a", "b"), ("b", "a"), ("b", "c"), ("c", "c"),
-         ("x", "y"), ("y", "z"), ("z", "x")],
+        [("a", "b"), ("b", "a"), ("b", "c"), ("c", "c"), ("x", "y"), ("y", "z"), ("z", "x")],
     )
 
 
@@ -57,7 +56,9 @@ class TestFigure52:
 
     def test_example_5_7_complete(self):
         assert complete_extensions(figure_5_2()) == [
-            fs("a3"), fs("a1", "a3"), fs("a2", "a3"),
+            fs("a3"),
+            fs("a1", "a3"),
+            fs("a2", "a3"),
         ]
 
     def test_example_5_8_preferred(self):
@@ -119,9 +120,7 @@ def test_complete_extensions_match_brute_force(seed):
     args = [f"a{i}" for i in range(rng.randint(1, 7))]
     attacks = [(a, b) for a in args for b in args if rng.random() < 0.3]
     af = ArgumentationFramework(args, attacks)
-    every_subset = (
-        frozenset(c) for r in range(len(args) + 1) for c in combinations(args, r)
-    )
+    every_subset = (frozenset(c) for r in range(len(args) + 1) for c in combinations(args, r))
     expected = {s for s in every_subset if af.is_complete(s)}
     assert set(complete_extensions(af)) == expected
     assert grounded(af) == min(expected, key=len)

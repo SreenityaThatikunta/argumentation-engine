@@ -97,9 +97,7 @@ class TestIndirectDefeats:
     def test_cycles_terminate_and_flip_parity_for_walks(self):
         # a ⇀ b ⇀ c ⇀ a: every pair is reachable at both parities by walks.
         attacks = {("a", "b"), ("b", "c"), ("c", "a")}
-        assert indirect_defeats(attacks, "abc", "walk") == {
-            (x, y) for x in "abc" for y in "abc"
-        }
+        assert indirect_defeats(attacks, "abc", "walk") == {(x, y) for x in "abc" for y in "abc"}
 
     def test_simple_paths_on_odd_cycle(self):
         attacks = {("a", "b"), ("b", "c"), ("c", "a")}
@@ -119,7 +117,9 @@ class TestIndirectDefeats:
         for _ in range(30):
             args = [f"a{i}" for i in range(6)]
             attacks = {(a, b) for a in args for b in args if rng.random() < 0.3}
-            assert indirect_defeats(attacks, args, "simple") <= indirect_defeats(attacks, args, "walk")
+            assert indirect_defeats(attacks, args, "simple") <= indirect_defeats(
+                attacks, args, "walk"
+            )
 
     def test_unknown_mode(self):
         with pytest.raises(ValueError):

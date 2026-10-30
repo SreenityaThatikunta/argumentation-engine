@@ -32,8 +32,7 @@ def extension_to_labelling(af: ArgumentationFramework, s: Iterable[Argument]) ->
     s = frozenset(s)
     s_plus = af.plus(s)
     return {
-        a: Label.IN if a in s else Label.OUT if a in s_plus else Label.UNDEC
-        for a in af.arguments
+        a: Label.IN if a in s else Label.OUT if a in s_plus else Label.UNDEC for a in af.arguments
     }
 
 

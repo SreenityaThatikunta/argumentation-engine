@@ -30,7 +30,11 @@ class TestLabellings:
 
     def test_grounded_labelling(self):
         assert grounded_labelling(figure_5_1()) == {
-            "a1": IN, "a2": OUT, "a3": IN, "a4": OUT, "a5": IN,
+            "a1": IN,
+            "a2": OUT,
+            "a3": IN,
+            "a4": OUT,
+            "a5": IN,
         }
 
     def test_every_generated_labelling_is_legal(self):
@@ -39,7 +43,9 @@ class TestLabellings:
 
     def test_round_trip_with_complete_extensions(self):
         af = figure_5_2()
-        assert [labelling_to_extension(lab) for lab in legal_labellings(af)] == complete_extensions(af)
+        assert [labelling_to_extension(lab) for lab in legal_labellings(af)] == complete_extensions(
+            af
+        )
 
     def test_illegal_in_with_in_attacker(self):
         assert not is_legal_labelling(figure_5_2(), {"a1": IN, "a2": IN, "a3": IN})
@@ -53,7 +59,11 @@ class TestLabellings:
 
     def test_extension_to_labelling_marks_attacked_out(self):
         assert extension_to_labelling(figure_5_1(), {"a3"}) == {
-            "a1": UNDEC, "a2": OUT, "a3": IN, "a4": UNDEC, "a5": UNDEC,
+            "a1": UNDEC,
+            "a2": OUT,
+            "a3": IN,
+            "a4": UNDEC,
+            "a5": UNDEC,
         }
 
 
@@ -63,7 +73,9 @@ def test_legal_labellings_match_brute_force(seed):
     args = [f"a{i}" for i in range(rng.randint(1, 6))]
     attacks = [(a, b) for a in args for b in args if rng.random() < 0.3]
     af = ArgumentationFramework(args, attacks)
-    every_labelling = (dict(zip(args, labels)) for labels in product(Label, repeat=len(args)))
+    every_labelling = (
+        dict(zip(args, labels, strict=True)) for labels in product(Label, repeat=len(args))
+    )
     expected = [lab for lab in every_labelling if is_legal_labelling(af, lab)]
     actual = legal_labellings(af)
     assert len(actual) == len(expected)
