@@ -21,3 +21,6 @@ htmlcov/
 .DS_Store
 .vscode/
 .idea/
+
+# Experiment logs (reproducible from results/*/config.json)
+results/**/instances.jsonl

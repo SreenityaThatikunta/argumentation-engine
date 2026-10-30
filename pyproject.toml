@@ -14,9 +14,11 @@ dependencies = []
 
 [project.optional-dependencies]
 dev = ["pytest>=8"]
+experiments = ["matplotlib>=3.7"]
 
 [tool.setuptools.packages.find]
 include = ["argumentation*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["."]
