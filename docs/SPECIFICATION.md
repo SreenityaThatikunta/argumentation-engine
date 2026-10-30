@@ -118,8 +118,9 @@ argument) is documented explicitly.
 - 3 agents
 - At least 1000 random instances per configuration
 - 6–8 arguments per instance
-- Each possible attack present independently with probability **p**, swept over
-  p ∈ {0.1, 0.2, 0.3, 0.4, 0.5}
+- Each possible attack (a, b) with a ≠ b present independently with probability
+  **p**, swept over p ∈ {0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5}. A second run
+  also allows self-attacks.
 - Arguments assigned to agents uniformly at random
 
 For each instance, record:
