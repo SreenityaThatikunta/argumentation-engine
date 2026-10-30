@@ -44,6 +44,11 @@ mechanism*. The engine:
 **Experiments.** Generates thousands of random multi-agent instances and
 measures how often truthful revelation is optimal. It also identifies the
 cases where the theoretical condition and actual behaviour disagree.
+An exhaustive search then checks the theorem on every graph with up to 5
+arguments, over 200 million cases in total.
+
+**Visualisation.** Renders frameworks and mechanism outcomes with Graphviz,
+coloured by labelling, showing which arguments each agent withheld.
 
 ## Getting Started
 
@@ -91,6 +96,7 @@ satisfies_theorem_5_4(attacks, types)    # False (a1 indirectly defeats a4, a5)
 ### Visualisation
 
 ```python
+# continues the example above
 from argumentation.visualize import mechanism_dot, render
 
 hiding = {**types, "x": types["x"] - {"a1"}}
@@ -139,8 +145,14 @@ Key findings:
   satisfies the condition and still fails strategyproofness. This holds
   whether "odd-length path" counts walks or only simple paths.
 - **The condition is far from necessary.** Most strategyproof instances fail
-  it. In 98% of those, the only deviation that rescues an indirectly defeated
-  argument hides at least as many of the agent's own arguments as it saves.
+  it. In 98% of those, hiding arguments *can* rescue an indirectly defeated
+  argument, but every such deviation loses at least as many of the agent's own
+  arguments as it saves. The rest are cases where the odd path is always
+  cancelled (as in the book's Example 5.11), or where the only violation is an
+  odd cycle through a single argument.
+- **Allowing self-attacks** ([`results/self-attacks/`](results/self-attacks/))
+  lowers strategyproofness at low p (81.2% → 72.7% at p = 0.1) but raises it
+  at high p (3.2% → 9.5% at p = 0.5). It still produces no counterexamples.
 
 ### Exhaustive verification
 
@@ -161,11 +173,11 @@ cross-checked against the main library and runs in parallel.
 | No self-attacks, n ≤ 5 | 6,312,206 | **0** (walks), **0** (simple paths) |
 | With self-attacks, n ≤ 5 | 201,656,372 | **0** (walks), **0** (simple paths) |
 
-Theorem 5.4 has no counterexample up to 5 arguments. The weaker
+Theorem 5.4 has no counterexample up to 5 arguments. The less restrictive
 **simple-path** reading also never fails, even though it accepts more cases
 than the walk reading: 33,549 extra (graph, agent set) pairs at n = 5, every
-one of them strategyproof. On these sizes, the simple-path condition is the
-tighter sufficient test.
+one of them strategyproof. On these sizes, the simple-path condition is still
+sufficient and identifies more strategyproof cases.
 
 ## Roadmap
 
@@ -183,6 +195,26 @@ tighter sufficient test.
 - [ ] Report and demo walkthrough
 
 See [docs/ROADMAP.md](docs/ROADMAP.md) for planned extensions.
+
+## Project Structure
+
+```
+argumentation/            # the library
+  framework.py            #   ArgumentationFramework: conflict-free, defence, F(S), admissible, complete
+  semantics.py            #   grounded, complete, preferred, stable, semi-stable
+  labelling.py            #   in/out/undec labellings
+  acceptance.py           #   skeptical / credulous / rejected
+  strategic.py            #   mechanism, best responses, Theorems 5.3 and 5.4
+  visualize.py            #   Graphviz rendering
+  examples.py             #   graphs from the textbook
+experiments/
+  run_experiments.py      # random-instance experiments
+  exhaustive.py           # exhaustive verification on small graphs
+  figures.py              # renders docs/figures/
+tests/                    # pytest suite, built from textbook examples
+results/                  # experiment outputs (CSV, JSON, plots)
+docs/                     # specification, roadmap, figures
+```
 
 ## Development
 
