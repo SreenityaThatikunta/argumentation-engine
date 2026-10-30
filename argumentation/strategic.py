@@ -16,12 +16,14 @@ from collections.abc import Hashable, Iterable, Iterator, Mapping
 from dataclasses import dataclass
 from functools import lru_cache
 from itertools import chain, combinations, product
+from typing import Any
 
 from argumentation.framework import Argument, ArgumentationFramework, Attack
 from argumentation.semantics import Extension, grounded
 
 Agent = Hashable
-Profile = Mapping[Agent, Iterable[Argument]]
+# Mapping keys are invariant, so Any lets dict[str, ...] and similar through.
+Profile = Mapping[Any, Iterable[Argument]]
 
 
 def induced_framework(

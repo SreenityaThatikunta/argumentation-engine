@@ -29,5 +29,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
+      - run: sudo apt-get install -y graphviz
       - run: pip install -e ".[dev,experiments]"
       - run: pytest --cov=argumentation --cov=experiments --cov-report=term-missing
