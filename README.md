@@ -214,7 +214,7 @@ sufficient and identifies more strategyproof cases.
 - [x] Exhaustive verification of Theorem 5.4 on small graphs
 - [x] Graphviz visualisation
 - [x] Demo walkthrough
-- [ ] Written report
+- [x] Written report
 
 See [docs/ROADMAP.md](docs/ROADMAP.md) for planned extensions.
 
@@ -237,6 +237,7 @@ demo.py                   # guided walkthrough of the whole project
 tests/                    # pytest suite, built from textbook examples
 results/                  # experiment outputs (CSV, JSON, plots)
 docs/                     # specification, roadmap, figures
+report/                   # LaTeX report and its figures
 ```
 
 ## Development
@@ -250,6 +251,9 @@ pytest --cov=argumentation              # tests with coverage
 
 ## Documentation
 
+- [Report (PDF)](report/report.pdf): 6-page write-up of the design, validation
+  and experiment findings. Rebuild it with `cd report && latexmk -pdf report.tex`
+  (figures: `python experiments/figures.py --format pdf --no-titles --plots --out report/figures`)
 - [Project specification](docs/SPECIFICATION.md): full scope, definitions,
   validation cases, experiment design, and known textbook errata
 - [Roadmap](docs/ROADMAP.md): improvements and research extensions

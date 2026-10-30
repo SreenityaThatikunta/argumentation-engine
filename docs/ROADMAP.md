@@ -11,7 +11,7 @@ Status: ✅ done · 🚧 in progress · ⬜ planned · ⏸ parked
 
 | Item | Notes |
 |---|---|
-| ⏸ Report | Q2/Q3 write-up with worked instances, design decisions, errata |
+| ✅ Report | `report/report.pdf` (LaTeX source in `report/`): design, validation, experiment results, Q2/Q3 analysis with worked instances, errata |
 | ✅ Demonstration | `demo.py`: seven-section terminal walkthrough of the textbook examples, manipulation cases, experiments and exhaustive results |
 | ⏸ Figure 5.3 test | Needs the edge list read from the figure |
 
