@@ -53,22 +53,28 @@ pytest
 ```
 
 ```python
-from argumentation import ArgumentationFramework
-
-af = ArgumentationFramework(
-    ["a1", "a2", "a3", "a4", "a5"],
-    [("a2", "a1"), ("a4", "a1"), ("a3", "a2"), ("a5", "a4")],
+from argumentation import (
+    ArgumentationFramework, acceptance_status, grounded,
+    legal_labellings, preferred_extensions,
 )
-af.characteristic({"a3", "a5"})       # frozenset({'a1', 'a3', 'a5'})
-af.is_complete({"a1", "a3", "a5"})    # True
+
+# a1 and a2 attack each other; a3 is unattacked
+af = ArgumentationFramework(["a1", "a2", "a3"], [("a1", "a2"), ("a2", "a1")])
+
+af.is_conflict_free({"a1", "a3"})   # True
+af.characteristic({"a3"})           # F(S) = {a3}
+grounded(af)                        # {a3}
+preferred_extensions(af)            # [{a1, a3}, {a2, a3}]
+legal_labellings(af)                # 3 in/out/undec labellings
+acceptance_status(af, "a1")         # credulously accepted (preferred semantics)
 ```
 
 ## Roadmap
 
 - [x] Argumentation framework: conflict-freeness, defence, characteristic function
 - [x] Admissible and complete set checks
-- [ ] Grounded, complete, preferred, stable and semi-stable extensions
-- [ ] Labelling enumeration and argument acceptance status
+- [x] Grounded, complete, preferred, stable and semi-stable extensions
+- [x] Labelling enumeration and argument acceptance status
 - [ ] Grounded direct argumentation mechanism and best-response search
 - [ ] Strategyproofness verification (Theorem 5.3) and graph condition (Theorem 5.4)
 - [ ] Randomised experiments with results and plots
