@@ -19,9 +19,9 @@ Status: ✅ done · 🚧 in progress · ⬜ planned · ⏸ parked
 
 | # | Item | Why |
 |---|---|---|
-| 1 | ⬜ **Exhaustive verification of Theorem 5.4** | Random sampling cannot prove there are no Q2 counterexamples. Enumerating every graph up to n arguments under every split among 3 agents (up to isomorphism) gives a definitive answer within that bound. It also settles whether the weaker *simple-path* reading of the condition is still sufficient |
-| 2 | ⬜ **CI and code quality** | GitHub Actions running pytest across Python versions, `ruff` lint and format checks, `mypy` type checking, and a status badge |
-| 3 | ⬜ **Graph visualisation** | Render frameworks with Graphviz, coloured by labelling (in = green, out = red, undec = grey), plus before/after views of a manipulation |
+| 1 | ✅ **Exhaustive verification of Theorem 5.4** | Random sampling cannot prove there are no Q2 counterexamples. `experiments/exhaustive.py` checks every directed graph on up to 5 arguments against every possible argument set for one agent (with disjoint types, the other agents jointly reveal any subset of the remaining arguments). This covers both readings of "odd-length path" and graphs with self-attacks. Extending to n = 6 (2³⁰ graphs) needs isomorphism reduction |
+| 2 | ✅ **CI and code quality** | GitHub Actions running pytest across Python versions, `ruff` lint and format checks, `mypy` type checking, and a status badge |
+| 3 | ✅ **Graph visualisation** | Render frameworks with Graphviz, coloured by labelling (in = green, out = red, undec = grey), plus before/after views of a manipulation |
 
 ## Engineering
 
