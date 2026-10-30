@@ -114,6 +114,27 @@ where agent x gains by hiding α1:
 More figures are in [`docs/figures/`](docs/figures/); regenerate them with
 `python experiments/figures.py`.
 
+## Demo
+
+```bash
+python demo.py              # guided walkthrough, pauses between sections
+python demo.py --no-pause   # run straight through
+python demo.py --section 3  # one section only
+```
+
+A terminal walkthrough of the whole project on the textbook examples, which
+takes a few minutes to present:
+
+1. **Framework basics** on Figure 5.1: conflict-freeness, defence, F(S) iterated to the grounded extension, admissible vs complete
+2. **Semantics** on Figure 5.2: all five semantics, the three labellings, acceptance status, and an edge case where semi-stable differs from preferred
+3. **Example 5.10**: the truthful outcome and utilities, x's best response (hide α1), and the Theorem 5.3 and 5.4 checks
+4. **Example 5.11**: strategyproof even though the Theorem 5.4 condition fails
+5. **Cycles**: a graph where walks and simple paths disagree
+6. **Experiments**: a live mini-run, the full results table, and one explained instance for each Q3 reason
+7. **Exhaustive verification**: a live check up to 4 arguments, plus the saved results up to 5
+
+The two textbook misprints are pointed out where they occur. Figures are written to `demo_output/`.
+
 ## Experiments
 
 ```bash
@@ -192,7 +213,8 @@ sufficient and identifies more strategyproof cases.
 - [x] CI with linting, type checking and coverage
 - [x] Exhaustive verification of Theorem 5.4 on small graphs
 - [x] Graphviz visualisation
-- [ ] Report and demo walkthrough
+- [x] Demo walkthrough
+- [ ] Written report
 
 See [docs/ROADMAP.md](docs/ROADMAP.md) for planned extensions.
 
@@ -211,6 +233,7 @@ experiments/
   run_experiments.py      # random-instance experiments
   exhaustive.py           # exhaustive verification on small graphs
   figures.py              # renders docs/figures/
+demo.py                   # guided walkthrough of the whole project
 tests/                    # pytest suite, built from textbook examples
 results/                  # experiment outputs (CSV, JSON, plots)
 docs/                     # specification, roadmap, figures

@@ -9,7 +9,7 @@ in *Multiagent Systems*, 2nd edition, edited by Gerhard Weiss (MIT Press, 2013).
 Definition, theorem and example numbers below refer to that chapter.
 
 **Status:** Parts 1 and 2 and the experiments are implemented and tested. The
-report and demonstration are pending. Arguments are named `"a1"`, `"a2"`, …
+demonstration is in `demo.py`; the report is pending. Arguments are named `"a1"`, `"a2"`, …
 in code for the book's α1, α2, ….
 
 ---
@@ -201,6 +201,6 @@ only on the graph and its own set. Results are in `results/exhaustive/` and
 | Deliverable | Contents | Status |
 |---|---|---|
 | **Code** | Library, test suite built from textbook examples, experiment runner | ✅ Done |
-| **README** | Overview, installation, usage, and how to run tests, demo and experiments | ✅ Done (demo section pending) |
+| **README** | Overview, installation, usage, and how to run tests, demo and experiments | ✅ Done |
 | **Report** | Definitions, design decisions (including cycle handling), validation results, experiment tables and plots, analysis of Q2/Q3 instances, errata | ⏸ Pending |
-| **Demonstration** | A walkthrough script covering the textbook examples and the strategic manipulation cases | ⏸ Pending |
+| **Demonstration** | A walkthrough script covering the textbook examples and the strategic manipulation cases | ✅ Done (`demo.py`) |

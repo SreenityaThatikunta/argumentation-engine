@@ -7,12 +7,12 @@ Status: ✅ done · 🚧 in progress · ⬜ planned · ⏸ parked
 
 ---
 
-## Parked
+## Assignment deliverables
 
 | Item | Notes |
 |---|---|
 | ⏸ Report | Q2/Q3 write-up with worked instances, design decisions, errata |
-| ⏸ Demonstration | Walkthrough script for the textbook examples and manipulation cases |
+| ✅ Demonstration | `demo.py`: seven-section terminal walkthrough of the textbook examples, manipulation cases, experiments and exhaustive results |
 | ⏸ Figure 5.3 test | Needs the edge list read from the figure |
 
 ## Priority
