@@ -1,0 +1,1659 @@
+{
+ "rescue_costs_as_much": [
+  {
+   "id": 14,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a1",
+     "a6"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a1",
+     "a3",
+     "a6"
+    ],
+    "y": [
+     "a2",
+     "a4"
+    ],
+    "z": [
+     "a5"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a2",
+    "a3",
+    "a4",
+    "a5"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "x",
+     "a1",
+     "a6"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "x",
+     "a1",
+     "a6"
+    ]
+   ],
+   "q3_reason": "rescue_costs_as_much"
+  },
+  {
+   "id": 18,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a5",
+     "a3"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a1",
+     "a2",
+     "a3",
+     "a4",
+     "a5"
+    ],
+    "y": [
+     "a6"
+    ],
+    "z": []
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a2",
+    "a4",
+    "a5",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "x",
+     "a5",
+     "a3"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "x",
+     "a5",
+     "a3"
+    ]
+   ],
+   "q3_reason": "rescue_costs_as_much"
+  },
+  {
+   "id": 60,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a5",
+     "a3"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a1",
+     "a6"
+    ],
+    "y": [
+     "a2",
+     "a4"
+    ],
+    "z": [
+     "a3",
+     "a5"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a2",
+    "a4",
+    "a5",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "z",
+     "a5",
+     "a3"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "z",
+     "a5",
+     "a3"
+    ]
+   ],
+   "q3_reason": "rescue_costs_as_much"
+  },
+  {
+   "id": 89,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a6",
+     "a5"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a2",
+     "a3",
+     "a4"
+    ],
+    "y": [
+     "a1",
+     "a5",
+     "a6"
+    ],
+    "z": []
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a2",
+    "a3",
+    "a4",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "y",
+     "a6",
+     "a5"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "y",
+     "a6",
+     "a5"
+    ]
+   ],
+   "q3_reason": "rescue_costs_as_much"
+  },
+  {
+   "id": 112,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a6",
+     "a5"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a4"
+    ],
+    "y": [
+     "a1",
+     "a3",
+     "a5",
+     "a6"
+    ],
+    "z": [
+     "a2"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a2",
+    "a3",
+    "a4",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "y",
+     "a6",
+     "a5"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "y",
+     "a6",
+     "a5"
+    ]
+   ],
+   "q3_reason": "rescue_costs_as_much"
+  },
+  {
+   "id": 122,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a6",
+     "a2"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a2",
+     "a3",
+     "a5",
+     "a6"
+    ],
+    "y": [
+     "a1",
+     "a4"
+    ],
+    "z": []
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a3",
+    "a4",
+    "a5",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "x",
+     "a6",
+     "a2"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "x",
+     "a6",
+     "a2"
+    ]
+   ],
+   "q3_reason": "rescue_costs_as_much"
+  },
+  {
+   "id": 125,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a4",
+     "a2"
+    ]
+   ],
+   "types": {
+    "x": [],
+    "y": [
+     "a1",
+     "a3"
+    ],
+    "z": [
+     "a2",
+     "a4",
+     "a5",
+     "a6"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a3",
+    "a4",
+    "a5",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "z",
+     "a4",
+     "a2"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "z",
+     "a4",
+     "a2"
+    ]
+   ],
+   "q3_reason": "rescue_costs_as_much"
+  },
+  {
+   "id": 212,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a4",
+     "a1"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a6"
+    ],
+    "y": [],
+    "z": [
+     "a1",
+     "a2",
+     "a3",
+     "a4",
+     "a5"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a2",
+    "a3",
+    "a4",
+    "a5",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "z",
+     "a4",
+     "a1"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "z",
+     "a4",
+     "a1"
+    ]
+   ],
+   "q3_reason": "rescue_costs_as_much"
+  },
+  {
+   "id": 243,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a4",
+     "a2"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a2",
+     "a4"
+    ],
+    "y": [
+     "a3",
+     "a5"
+    ],
+    "z": [
+     "a1",
+     "a6"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a3",
+    "a4",
+    "a5",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "x",
+     "a4",
+     "a2"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "x",
+     "a4",
+     "a2"
+    ]
+   ],
+   "q3_reason": "rescue_costs_as_much"
+  },
+  {
+   "id": 268,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a1",
+     "a3"
+    ]
+   ],
+   "types": {
+    "x": [],
+    "y": [
+     "a1",
+     "a2",
+     "a3",
+     "a4",
+     "a5"
+    ],
+    "z": [
+     "a6"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a2",
+    "a4",
+    "a5",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "y",
+     "a1",
+     "a3"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "y",
+     "a1",
+     "a3"
+    ]
+   ],
+   "q3_reason": "rescue_costs_as_much"
+  }
+ ],
+ "never_rescues": [
+  {
+   "id": 85,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a2",
+     "a5"
+    ],
+    [
+     "a5",
+     "a5"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a3"
+    ],
+    "y": [
+     "a1",
+     "a2",
+     "a5"
+    ],
+    "z": [
+     "a4",
+     "a6"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a2",
+    "a3",
+    "a4",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "y",
+     "a2",
+     "a5"
+    ],
+    [
+     "y",
+     "a5",
+     "a5"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "y",
+     "a2",
+     "a5"
+    ],
+    [
+     "y",
+     "a5",
+     "a5"
+    ]
+   ],
+   "q3_reason": "never_rescues"
+  },
+  {
+   "id": 301,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a4",
+     "a4"
+    ],
+    [
+     "a6",
+     "a4"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a3",
+     "a5"
+    ],
+    "y": [
+     "a1"
+    ],
+    "z": [
+     "a2",
+     "a4",
+     "a6"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a2",
+    "a3",
+    "a5",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "z",
+     "a4",
+     "a4"
+    ],
+    [
+     "z",
+     "a6",
+     "a4"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "z",
+     "a4",
+     "a4"
+    ],
+    [
+     "z",
+     "a6",
+     "a4"
+    ]
+   ],
+   "q3_reason": "never_rescues"
+  },
+  {
+   "id": 696,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a1",
+     "a1"
+    ],
+    [
+     "a3",
+     "a1"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a1",
+     "a3",
+     "a4",
+     "a5"
+    ],
+    "y": [
+     "a6"
+    ],
+    "z": [
+     "a2"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a2",
+    "a3",
+    "a4",
+    "a5",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "x",
+     "a1",
+     "a1"
+    ],
+    [
+     "x",
+     "a3",
+     "a1"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "x",
+     "a1",
+     "a1"
+    ],
+    [
+     "x",
+     "a3",
+     "a1"
+    ]
+   ],
+   "q3_reason": "never_rescues"
+  },
+  {
+   "id": 192,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a2",
+     "a3"
+    ],
+    [
+     "a3",
+     "a3"
+    ],
+    [
+     "a3",
+     "a5"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a1"
+    ],
+    "y": [
+     "a2",
+     "a5",
+     "a6"
+    ],
+    "z": [
+     "a3",
+     "a4"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a2",
+    "a4",
+    "a5",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "y",
+     "a2",
+     "a5"
+    ],
+    [
+     "z",
+     "a3",
+     "a3"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "z",
+     "a3",
+     "a3"
+    ]
+   ],
+   "q3_reason": "never_rescues"
+  },
+  {
+   "id": 228,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a1",
+     "a1"
+    ],
+    [
+     "a3",
+     "a1"
+    ],
+    [
+     "a5",
+     "a5"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a2",
+     "a5"
+    ],
+    "y": [
+     "a1",
+     "a3",
+     "a4"
+    ],
+    "z": [
+     "a6"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a2",
+    "a3",
+    "a4",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "x",
+     "a5",
+     "a5"
+    ],
+    [
+     "y",
+     "a1",
+     "a1"
+    ],
+    [
+     "y",
+     "a3",
+     "a1"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "x",
+     "a5",
+     "a5"
+    ],
+    [
+     "y",
+     "a1",
+     "a1"
+    ],
+    [
+     "y",
+     "a3",
+     "a1"
+    ]
+   ],
+   "q3_reason": "never_rescues"
+  },
+  {
+   "id": 292,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a3",
+     "a3"
+    ],
+    [
+     "a3",
+     "a4"
+    ],
+    [
+     "a4",
+     "a5"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a2",
+     "a6"
+    ],
+    "y": [
+     "a1",
+     "a3",
+     "a5"
+    ],
+    "z": [
+     "a4"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a2",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "y",
+     "a3",
+     "a3"
+    ],
+    [
+     "y",
+     "a3",
+     "a5"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "y",
+     "a3",
+     "a3"
+    ]
+   ],
+   "q3_reason": "never_rescues"
+  },
+  {
+   "id": 403,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a1",
+     "a5"
+    ],
+    [
+     "a2",
+     "a2"
+    ],
+    [
+     "a6",
+     "a2"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a1",
+     "a3",
+     "a4"
+    ],
+    "y": [
+     "a2",
+     "a6"
+    ],
+    "z": [
+     "a5"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a3",
+    "a4",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "y",
+     "a2",
+     "a2"
+    ],
+    [
+     "y",
+     "a6",
+     "a2"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "y",
+     "a2",
+     "a2"
+    ],
+    [
+     "y",
+     "a6",
+     "a2"
+    ]
+   ],
+   "q3_reason": "never_rescues"
+  },
+  {
+   "id": 483,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a1",
+     "a6"
+    ],
+    [
+     "a5",
+     "a1"
+    ],
+    [
+     "a6",
+     "a6"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a2",
+     "a3",
+     "a4",
+     "a5",
+     "a6"
+    ],
+    "y": [
+     "a1"
+    ],
+    "z": []
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a2",
+    "a3",
+    "a4",
+    "a5"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "x",
+     "a5",
+     "a6"
+    ],
+    [
+     "x",
+     "a6",
+     "a6"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "x",
+     "a6",
+     "a6"
+    ]
+   ],
+   "q3_reason": "never_rescues"
+  },
+  {
+   "id": 1051,
+   "p": 0.1,
+   "n": 6,
+   "attacks": [
+    [
+     "a3",
+     "a6"
+    ],
+    [
+     "a6",
+     "a1"
+    ],
+    [
+     "a6",
+     "a6"
+    ]
+   ],
+   "types": {
+    "x": [],
+    "y": [
+     "a1",
+     "a2",
+     "a3",
+     "a4",
+     "a5",
+     "a6"
+    ],
+    "z": []
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a2",
+    "a3",
+    "a4",
+    "a5"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "y",
+     "a3",
+     "a1"
+    ],
+    [
+     "y",
+     "a3",
+     "a6"
+    ],
+    [
+     "y",
+     "a6",
+     "a1"
+    ],
+    [
+     "y",
+     "a6",
+     "a6"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "y",
+     "a3",
+     "a6"
+    ],
+    [
+     "y",
+     "a6",
+     "a1"
+    ],
+    [
+     "y",
+     "a6",
+     "a6"
+    ]
+   ],
+   "q3_reason": "never_rescues"
+  },
+  {
+   "id": 1491,
+   "p": 0.1,
+   "n": 6,
+   "attacks": [
+    [
+     "a2",
+     "a2"
+    ],
+    [
+     "a4",
+     "a2"
+    ],
+    [
+     "a5",
+     "a4"
+    ]
+   ],
+   "types": {
+    "x": [],
+    "y": [
+     "a1",
+     "a3",
+     "a4",
+     "a6"
+    ],
+    "z": [
+     "a2",
+     "a5"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a3",
+    "a5",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "z",
+     "a2",
+     "a2"
+    ],
+    [
+     "z",
+     "a5",
+     "a2"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "z",
+     "a2",
+     "a2"
+    ]
+   ],
+   "q3_reason": "never_rescues"
+  }
+ ],
+ "self_cycles_only": [
+  {
+   "id": 127,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a5",
+     "a5"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a1",
+     "a2",
+     "a3",
+     "a6"
+    ],
+    "y": [],
+    "z": [
+     "a4",
+     "a5"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a2",
+    "a3",
+    "a4",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "z",
+     "a5",
+     "a5"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "z",
+     "a5",
+     "a5"
+    ]
+   ],
+   "q3_reason": "self_cycles_only"
+  },
+  {
+   "id": 146,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a2",
+     "a2"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a3",
+     "a4",
+     "a5"
+    ],
+    "y": [
+     "a1",
+     "a2",
+     "a6"
+    ],
+    "z": []
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a3",
+    "a4",
+    "a5",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "y",
+     "a2",
+     "a2"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "y",
+     "a2",
+     "a2"
+    ]
+   ],
+   "q3_reason": "self_cycles_only"
+  },
+  {
+   "id": 174,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a2",
+     "a2"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a1",
+     "a4",
+     "a6"
+    ],
+    "y": [
+     "a2"
+    ],
+    "z": [
+     "a3",
+     "a5"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a3",
+    "a4",
+    "a5",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "y",
+     "a2",
+     "a2"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "y",
+     "a2",
+     "a2"
+    ]
+   ],
+   "q3_reason": "self_cycles_only"
+  },
+  {
+   "id": 325,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a1",
+     "a1"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a1",
+     "a2",
+     "a4",
+     "a5"
+    ],
+    "y": [],
+    "z": [
+     "a3",
+     "a6"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a2",
+    "a3",
+    "a4",
+    "a5",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "x",
+     "a1",
+     "a1"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "x",
+     "a1",
+     "a1"
+    ]
+   ],
+   "q3_reason": "self_cycles_only"
+  },
+  {
+   "id": 374,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a6",
+     "a6"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a2",
+     "a3"
+    ],
+    "y": [
+     "a1",
+     "a5"
+    ],
+    "z": [
+     "a4",
+     "a6"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a2",
+    "a3",
+    "a4",
+    "a5"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "z",
+     "a6",
+     "a6"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "z",
+     "a6",
+     "a6"
+    ]
+   ],
+   "q3_reason": "self_cycles_only"
+  },
+  {
+   "id": 436,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a4",
+     "a4"
+    ]
+   ],
+   "types": {
+    "x": [],
+    "y": [
+     "a1",
+     "a2",
+     "a5"
+    ],
+    "z": [
+     "a3",
+     "a4",
+     "a6"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a2",
+    "a3",
+    "a5",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "z",
+     "a4",
+     "a4"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "z",
+     "a4",
+     "a4"
+    ]
+   ],
+   "q3_reason": "self_cycles_only"
+  },
+  {
+   "id": 447,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a4",
+     "a4"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a2",
+     "a3"
+    ],
+    "y": [],
+    "z": [
+     "a1",
+     "a4",
+     "a5",
+     "a6"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a2",
+    "a3",
+    "a5",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "z",
+     "a4",
+     "a4"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "z",
+     "a4",
+     "a4"
+    ]
+   ],
+   "q3_reason": "self_cycles_only"
+  },
+  {
+   "id": 542,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a2",
+     "a2"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a1",
+     "a3",
+     "a4",
+     "a6"
+    ],
+    "y": [
+     "a2"
+    ],
+    "z": [
+     "a5"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a3",
+    "a4",
+    "a5",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "y",
+     "a2",
+     "a2"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "y",
+     "a2",
+     "a2"
+    ]
+   ],
+   "q3_reason": "self_cycles_only"
+  },
+  {
+   "id": 614,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a4",
+     "a4"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a1",
+     "a2",
+     "a3"
+    ],
+    "y": [
+     "a4",
+     "a5",
+     "a6"
+    ],
+    "z": []
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a2",
+    "a3",
+    "a5",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "y",
+     "a4",
+     "a4"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "y",
+     "a4",
+     "a4"
+    ]
+   ],
+   "q3_reason": "self_cycles_only"
+  },
+  {
+   "id": 668,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a4",
+     "a4"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a1",
+     "a4",
+     "a6"
+    ],
+    "y": [
+     "a2"
+    ],
+    "z": [
+     "a3",
+     "a5"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a2",
+    "a3",
+    "a5",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "x",
+     "a4",
+     "a4"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "x",
+     "a4",
+     "a4"
+    ]
+   ],
+   "q3_reason": "self_cycles_only"
+  }
+ ]
+}

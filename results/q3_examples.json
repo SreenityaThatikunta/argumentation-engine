@@ -1,0 +1,1553 @@
+{
+ "rescue_costs_as_much": [
+  {
+   "id": 17,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a5",
+     "a1"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a1",
+     "a2",
+     "a5"
+    ],
+    "y": [
+     "a3"
+    ],
+    "z": [
+     "a4",
+     "a6"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a2",
+    "a3",
+    "a4",
+    "a5",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "x",
+     "a5",
+     "a1"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "x",
+     "a5",
+     "a1"
+    ]
+   ],
+   "q3_reason": "rescue_costs_as_much"
+  },
+  {
+   "id": 145,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a3",
+     "a5"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a2"
+    ],
+    "y": [
+     "a6"
+    ],
+    "z": [
+     "a1",
+     "a3",
+     "a4",
+     "a5"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a2",
+    "a3",
+    "a4",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "z",
+     "a3",
+     "a5"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "z",
+     "a3",
+     "a5"
+    ]
+   ],
+   "q3_reason": "rescue_costs_as_much"
+  },
+  {
+   "id": 230,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a6",
+     "a5"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a2"
+    ],
+    "y": [
+     "a1",
+     "a3",
+     "a4",
+     "a5",
+     "a6"
+    ],
+    "z": []
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a2",
+    "a3",
+    "a4",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "y",
+     "a6",
+     "a5"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "y",
+     "a6",
+     "a5"
+    ]
+   ],
+   "q3_reason": "rescue_costs_as_much"
+  },
+  {
+   "id": 275,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a3",
+     "a2"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a2",
+     "a3",
+     "a4",
+     "a5"
+    ],
+    "y": [],
+    "z": [
+     "a1",
+     "a6"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a3",
+    "a4",
+    "a5",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "x",
+     "a3",
+     "a2"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "x",
+     "a3",
+     "a2"
+    ]
+   ],
+   "q3_reason": "rescue_costs_as_much"
+  },
+  {
+   "id": 319,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a3",
+     "a1"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a4",
+     "a5"
+    ],
+    "y": [],
+    "z": [
+     "a1",
+     "a2",
+     "a3",
+     "a6"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a2",
+    "a3",
+    "a4",
+    "a5",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "z",
+     "a3",
+     "a1"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "z",
+     "a3",
+     "a1"
+    ]
+   ],
+   "q3_reason": "rescue_costs_as_much"
+  },
+  {
+   "id": 361,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a5",
+     "a2"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a1",
+     "a4",
+     "a6"
+    ],
+    "y": [
+     "a2",
+     "a3",
+     "a5"
+    ],
+    "z": []
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a3",
+    "a4",
+    "a5",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "y",
+     "a5",
+     "a2"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "y",
+     "a5",
+     "a2"
+    ]
+   ],
+   "q3_reason": "rescue_costs_as_much"
+  },
+  {
+   "id": 438,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a6",
+     "a5"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a1"
+    ],
+    "y": [
+     "a2",
+     "a4",
+     "a5",
+     "a6"
+    ],
+    "z": [
+     "a3"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a2",
+    "a3",
+    "a4",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "y",
+     "a6",
+     "a5"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "y",
+     "a6",
+     "a5"
+    ]
+   ],
+   "q3_reason": "rescue_costs_as_much"
+  },
+  {
+   "id": 497,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a1",
+     "a3"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a1",
+     "a2",
+     "a3"
+    ],
+    "y": [
+     "a4"
+    ],
+    "z": [
+     "a5",
+     "a6"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a2",
+    "a4",
+    "a5",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "x",
+     "a1",
+     "a3"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "x",
+     "a1",
+     "a3"
+    ]
+   ],
+   "q3_reason": "rescue_costs_as_much"
+  },
+  {
+   "id": 518,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a4",
+     "a6"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a4",
+     "a6"
+    ],
+    "y": [
+     "a2",
+     "a3",
+     "a5"
+    ],
+    "z": [
+     "a1"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a2",
+    "a3",
+    "a4",
+    "a5"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "x",
+     "a4",
+     "a6"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "x",
+     "a4",
+     "a6"
+    ]
+   ],
+   "q3_reason": "rescue_costs_as_much"
+  },
+  {
+   "id": 543,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a6",
+     "a2"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a4",
+     "a5"
+    ],
+    "y": [],
+    "z": [
+     "a1",
+     "a2",
+     "a3",
+     "a6"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a3",
+    "a4",
+    "a5",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "z",
+     "a6",
+     "a2"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "z",
+     "a6",
+     "a2"
+    ]
+   ],
+   "q3_reason": "rescue_costs_as_much"
+  }
+ ],
+ "never_rescues": [
+  {
+   "id": 1739,
+   "p": 0.1,
+   "n": 6,
+   "attacks": [
+    [
+     "a4",
+     "a1"
+    ],
+    [
+     "a5",
+     "a6"
+    ],
+    [
+     "a6",
+     "a1"
+    ],
+    [
+     "a6",
+     "a4"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a3",
+     "a6"
+    ],
+    "y": [
+     "a1",
+     "a5"
+    ],
+    "z": [
+     "a2",
+     "a4"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a2",
+    "a3",
+    "a4",
+    "a5"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "y",
+     "a5",
+     "a1"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "y",
+     "a5",
+     "a1"
+    ]
+   ],
+   "q3_reason": "never_rescues"
+  },
+  {
+   "id": 187,
+   "p": 0.05,
+   "n": 6,
+   "attacks": [
+    [
+     "a2",
+     "a3"
+    ],
+    [
+     "a3",
+     "a5"
+    ],
+    [
+     "a4",
+     "a6"
+    ],
+    [
+     "a6",
+     "a3"
+    ],
+    [
+     "a6",
+     "a5"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a1",
+     "a2",
+     "a6"
+    ],
+    "y": [
+     "a4",
+     "a5"
+    ],
+    "z": [
+     "a3"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a2",
+    "a4",
+    "a5"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "y",
+     "a4",
+     "a5"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "y",
+     "a4",
+     "a5"
+    ]
+   ],
+   "q3_reason": "never_rescues"
+  },
+  {
+   "id": 342,
+   "p": 0.05,
+   "n": 7,
+   "attacks": [
+    [
+     "a2",
+     "a6"
+    ],
+    [
+     "a4",
+     "a7"
+    ],
+    [
+     "a6",
+     "a7"
+    ],
+    [
+     "a7",
+     "a2"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a7"
+    ],
+    "y": [
+     "a1",
+     "a4",
+     "a5",
+     "a6"
+    ],
+    "z": [
+     "a2",
+     "a3"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a2",
+    "a3",
+    "a4",
+    "a5"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "x",
+     "a7",
+     "a7"
+    ],
+    [
+     "y",
+     "a4",
+     "a6"
+    ],
+    [
+     "y",
+     "a6",
+     "a6"
+    ],
+    [
+     "z",
+     "a2",
+     "a2"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "x",
+     "a7",
+     "a7"
+    ],
+    [
+     "y",
+     "a4",
+     "a6"
+    ],
+    [
+     "y",
+     "a6",
+     "a6"
+    ],
+    [
+     "z",
+     "a2",
+     "a2"
+    ]
+   ],
+   "q3_reason": "never_rescues"
+  },
+  {
+   "id": 2137,
+   "p": 0.15,
+   "n": 6,
+   "attacks": [
+    [
+     "a2",
+     "a1"
+    ],
+    [
+     "a2",
+     "a5"
+    ],
+    [
+     "a4",
+     "a5"
+    ],
+    [
+     "a5",
+     "a2"
+    ],
+    [
+     "a5",
+     "a3"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a1",
+     "a4"
+    ],
+    "y": [
+     "a5"
+    ],
+    "z": [
+     "a2",
+     "a3",
+     "a6"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a2",
+    "a3",
+    "a4",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "x",
+     "a4",
+     "a1"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "x",
+     "a4",
+     "a1"
+    ]
+   ],
+   "q3_reason": "never_rescues"
+  },
+  {
+   "id": 2168,
+   "p": 0.15,
+   "n": 7,
+   "attacks": [
+    [
+     "a3",
+     "a6"
+    ],
+    [
+     "a5",
+     "a6"
+    ],
+    [
+     "a6",
+     "a7"
+    ],
+    [
+     "a7",
+     "a3"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a2",
+     "a6"
+    ],
+    "y": [
+     "a1",
+     "a4",
+     "a5",
+     "a7"
+    ],
+    "z": [
+     "a3"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a2",
+    "a4",
+    "a5",
+    "a7"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "x",
+     "a6",
+     "a6"
+    ],
+    [
+     "y",
+     "a5",
+     "a7"
+    ],
+    [
+     "y",
+     "a7",
+     "a7"
+    ],
+    [
+     "z",
+     "a3",
+     "a3"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "x",
+     "a6",
+     "a6"
+    ],
+    [
+     "y",
+     "a7",
+     "a7"
+    ],
+    [
+     "z",
+     "a3",
+     "a3"
+    ]
+   ],
+   "q3_reason": "never_rescues"
+  },
+  {
+   "id": 3378,
+   "p": 0.2,
+   "n": 6,
+   "attacks": [
+    [
+     "a1",
+     "a4"
+    ],
+    [
+     "a3",
+     "a6"
+    ],
+    [
+     "a4",
+     "a5"
+    ],
+    [
+     "a5",
+     "a2"
+    ],
+    [
+     "a5",
+     "a4"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a3",
+     "a5"
+    ],
+    "y": [
+     "a4"
+    ],
+    "z": [
+     "a1",
+     "a2",
+     "a6"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a3",
+    "a5"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "z",
+     "a1",
+     "a2"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "z",
+     "a1",
+     "a2"
+    ]
+   ],
+   "q3_reason": "never_rescues"
+  },
+  {
+   "id": 3976,
+   "p": 0.2,
+   "n": 6,
+   "attacks": [
+    [
+     "a1",
+     "a4"
+    ],
+    [
+     "a2",
+     "a4"
+    ],
+    [
+     "a3",
+     "a2"
+    ],
+    [
+     "a3",
+     "a4"
+    ],
+    [
+     "a4",
+     "a3"
+    ],
+    [
+     "a5",
+     "a4"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a2",
+     "a5",
+     "a6"
+    ],
+    "y": [
+     "a1",
+     "a3"
+    ],
+    "z": [
+     "a4"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a3",
+    "a5",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "x",
+     "a2",
+     "a2"
+    ],
+    [
+     "x",
+     "a5",
+     "a2"
+    ],
+    [
+     "y",
+     "a1",
+     "a3"
+    ],
+    [
+     "y",
+     "a3",
+     "a3"
+    ],
+    [
+     "z",
+     "a4",
+     "a4"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "x",
+     "a2",
+     "a2"
+    ],
+    [
+     "x",
+     "a5",
+     "a2"
+    ],
+    [
+     "y",
+     "a3",
+     "a3"
+    ],
+    [
+     "z",
+     "a4",
+     "a4"
+    ]
+   ],
+   "q3_reason": "never_rescues"
+  },
+  {
+   "id": 4676,
+   "p": 0.3,
+   "n": 6,
+   "attacks": [
+    [
+     "a1",
+     "a3"
+    ],
+    [
+     "a1",
+     "a4"
+    ],
+    [
+     "a2",
+     "a5"
+    ],
+    [
+     "a4",
+     "a2"
+    ],
+    [
+     "a5",
+     "a2"
+    ],
+    [
+     "a5",
+     "a4"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a3",
+     "a5",
+     "a6"
+    ],
+    "y": [
+     "a1",
+     "a2"
+    ],
+    "z": [
+     "a4"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "x",
+     "a5",
+     "a5"
+    ],
+    [
+     "y",
+     "a1",
+     "a2"
+    ],
+    [
+     "y",
+     "a2",
+     "a2"
+    ],
+    [
+     "z",
+     "a4",
+     "a4"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "x",
+     "a5",
+     "a5"
+    ],
+    [
+     "y",
+     "a2",
+     "a2"
+    ],
+    [
+     "z",
+     "a4",
+     "a4"
+    ]
+   ],
+   "q3_reason": "never_rescues"
+  },
+  {
+   "id": 1154,
+   "p": 0.1,
+   "n": 7,
+   "attacks": [
+    [
+     "a2",
+     "a6"
+    ],
+    [
+     "a3",
+     "a1"
+    ],
+    [
+     "a3",
+     "a2"
+    ],
+    [
+     "a4",
+     "a2"
+    ],
+    [
+     "a4",
+     "a6"
+    ],
+    [
+     "a6",
+     "a4"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a1",
+     "a2"
+    ],
+    "y": [
+     "a5",
+     "a6"
+    ],
+    "z": [
+     "a3",
+     "a4",
+     "a7"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a3",
+    "a5",
+    "a7"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "x",
+     "a2",
+     "a2"
+    ],
+    [
+     "y",
+     "a6",
+     "a6"
+    ],
+    [
+     "z",
+     "a3",
+     "a4"
+    ],
+    [
+     "z",
+     "a4",
+     "a4"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "x",
+     "a2",
+     "a2"
+    ],
+    [
+     "y",
+     "a6",
+     "a6"
+    ],
+    [
+     "z",
+     "a3",
+     "a4"
+    ],
+    [
+     "z",
+     "a4",
+     "a4"
+    ]
+   ],
+   "q3_reason": "never_rescues"
+  },
+  {
+   "id": 2262,
+   "p": 0.15,
+   "n": 8,
+   "attacks": [
+    [
+     "a1",
+     "a2"
+    ],
+    [
+     "a2",
+     "a1"
+    ],
+    [
+     "a3",
+     "a2"
+    ],
+    [
+     "a3",
+     "a5"
+    ],
+    [
+     "a5",
+     "a2"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a1",
+     "a3",
+     "a4",
+     "a6"
+    ],
+    "y": [
+     "a5",
+     "a8"
+    ],
+    "z": [
+     "a2",
+     "a7"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a3",
+    "a4",
+    "a6",
+    "a7",
+    "a8"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "x",
+     "a3",
+     "a1"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "x",
+     "a3",
+     "a1"
+    ]
+   ],
+   "q3_reason": "never_rescues"
+  }
+ ],
+ "self_cycles_only": [
+  {
+   "id": 686,
+   "p": 0.05,
+   "n": 7,
+   "attacks": [
+    [
+     "a1",
+     "a2"
+    ],
+    [
+     "a2",
+     "a1"
+    ],
+    [
+     "a2",
+     "a6"
+    ],
+    [
+     "a6",
+     "a1"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a1",
+     "a3",
+     "a7"
+    ],
+    "y": [
+     "a2",
+     "a5"
+    ],
+    "z": [
+     "a4",
+     "a6"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a3",
+    "a4",
+    "a5",
+    "a7"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "x",
+     "a1",
+     "a1"
+    ],
+    [
+     "y",
+     "a2",
+     "a2"
+    ],
+    [
+     "z",
+     "a6",
+     "a6"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "x",
+     "a1",
+     "a1"
+    ],
+    [
+     "y",
+     "a2",
+     "a2"
+    ],
+    [
+     "z",
+     "a6",
+     "a6"
+    ]
+   ],
+   "q3_reason": "self_cycles_only"
+  },
+  {
+   "id": 3314,
+   "p": 0.2,
+   "n": 6,
+   "attacks": [
+    [
+     "a2",
+     "a3"
+    ],
+    [
+     "a2",
+     "a4"
+    ],
+    [
+     "a3",
+     "a4"
+    ],
+    [
+     "a4",
+     "a2"
+    ],
+    [
+     "a5",
+     "a1"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a4"
+    ],
+    "y": [
+     "a1",
+     "a3",
+     "a6"
+    ],
+    "z": [
+     "a2",
+     "a5"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a5",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "x",
+     "a4",
+     "a4"
+    ],
+    [
+     "y",
+     "a3",
+     "a3"
+    ],
+    [
+     "z",
+     "a2",
+     "a2"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "x",
+     "a4",
+     "a4"
+    ],
+    [
+     "y",
+     "a3",
+     "a3"
+    ],
+    [
+     "z",
+     "a2",
+     "a2"
+    ]
+   ],
+   "q3_reason": "self_cycles_only"
+  },
+  {
+   "id": 2593,
+   "p": 0.15,
+   "n": 7,
+   "attacks": [
+    [
+     "a1",
+     "a5"
+    ],
+    [
+     "a3",
+     "a7"
+    ],
+    [
+     "a4",
+     "a3"
+    ],
+    [
+     "a7",
+     "a3"
+    ],
+    [
+     "a7",
+     "a4"
+    ]
+   ],
+   "types": {
+    "x": [
+     "a5",
+     "a7"
+    ],
+    "y": [
+     "a3"
+    ],
+    "z": [
+     "a1",
+     "a2",
+     "a4",
+     "a6"
+    ]
+   },
+   "strategyproof": true,
+   "truthful_outcome": [
+    "a1",
+    "a2",
+    "a6"
+   ],
+   "thm54_walk": false,
+   "violations_walk": [
+    [
+     "x",
+     "a7",
+     "a7"
+    ],
+    [
+     "y",
+     "a3",
+     "a3"
+    ],
+    [
+     "z",
+     "a4",
+     "a4"
+    ]
+   ],
+   "thm54_simple": false,
+   "violations_simple": [
+    [
+     "x",
+     "a7",
+     "a7"
+    ],
+    [
+     "y",
+     "a3",
+     "a3"
+    ],
+    [
+     "z",
+     "a4",
+     "a4"
+    ]
+   ],
+   "q3_reason": "self_cycles_only"
+  }
+ ]
+}
