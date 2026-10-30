@@ -24,3 +24,6 @@ htmlcov/
 
 # Experiment logs (reproducible from results/*/config.json)
 results/**/instances.jsonl
+
+# Demo figures
+demo_output/
