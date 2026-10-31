@@ -19,6 +19,8 @@ theorem empirically through large-scale simulations.
 **Live demo:** [verum.sreenitya.in](https://verum.sreenitya.in), an interactive
 version that runs the library in your browser.
 
+[![Verum: agent x hides α1, which frees α4 and α5 and raises its utility from 1 to 2](docs/figures/verum.png)](https://verum.sreenitya.in)
+
 ---
 
 ## Overview
