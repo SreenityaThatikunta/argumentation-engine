@@ -135,6 +135,23 @@ takes a few minutes to present:
 
 The two textbook misprints are pointed out where they occur. Figures are written to `demo_output/`.
 
+## Web demo
+
+An interactive version of the project that runs in the browser. The library itself runs client-side through [Pyodide](https://pyodide.org), so nothing is reimplemented in JavaScript and no backend is needed. Serve the repository root and open `/web/`:
+
+```bash
+python3 -m http.server 8000
+```
+
+Then visit <http://localhost:8000/web/>. The first load downloads the Python runtime (about 10 MB).
+
+- **Playground**: build a framework by clicking, switch between the five semantics, step through extensions, animate F(S) building the grounded extension, and check any set S for conflict-freeness, admissibility and completeness.
+- **Strategic Game**: hide and reveal each agent's arguments and watch the judge's outcome and utilities update. It also finds best responses, checks Theorem 5.3 exactly and the Theorem 5.4 condition under both path readings, and generates random instances.
+- **Results**: the Q1–Q3 experiment results, the exhaustive check, and a live mini-run in the browser.
+- **How it works**: a short explainer of the theory, with links into the other tabs.
+
+The page code is in [`web/`](web/): `bridge.py` exposes the library to JavaScript as JSON, and `app.js` handles the interface.
+
 ## Experiments
 
 ```bash

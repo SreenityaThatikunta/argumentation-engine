@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Argumentation Engine</title>
+  <meta name="description" content="Interactive demo of abstract and strategic argumentation: semantics, the grounded direct mechanism, and when agents gain by hiding arguments.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <h1>Argumentation Engine</h1>
+    <span>Can an agent cheat the judge?</span>
+  </div>
+  <nav>
+    <button data-view="playground" class="active">Playground</button>
+    <button data-view="game">Strategic Game</button>
+    <button data-view="results">Results</button>
+    <button data-view="how">How it works</button>
+  </nav>
+  <div class="status" id="status"><span class="dot"></span><span class="txt">Loading Python</span></div>
+</header>
+
+<div class="loading" id="loading">
+  <div class="loading-inner">
+    <div class="bar"><div></div></div>
+    <p id="loading-text">Loading the Python runtime (about 10 MB, cached after the first visit)</p>
+  </div>
+</div>
+
+<main>
+
+  <!-- ================= Playground ================= -->
+  <div class="view active" id="view-playground">
+    <div class="workspace">
+      <aside class="side">
+        <div class="group">
+          <span class="label">Framework</span>
+          <select id="pg-preset">
+            <option value="fig51">Figure 5.1: defence chain</option>
+            <option value="fig52">Figure 5.2: mutual attack</option>
+            <option value="edge">Semi-stable differs from preferred</option>
+            <option value="cycle">Odd cycle: walks vs simple paths</option>
+            <option value="empty">Empty canvas</option>
+          </select>
+        </div>
+
+        <div class="group">
+          <span class="label">Semantics</span>
+          <div class="seg vertical" id="pg-semantics">
+            <button data-s="grounded" class="active">Grounded</button>
+            <button data-s="complete">Complete</button>
+            <button data-s="preferred">Preferred</button>
+            <button data-s="stable">Stable</button>
+            <button data-s="semi-stable">Semi-stable</button>
+          </div>
+        </div>
+
+        <div class="group">
+          <span class="label">Mode</span>
+          <div class="seg" id="pg-mode">
+            <button data-m="edit" class="active">Edit graph</button>
+            <button data-m="pick">Pick a set S</button>
+          </div>
+          <p class="hint" id="pg-mode-hint">Click empty space to add an argument. Click one argument, then another, to add an attack. Select and press Delete to remove.</p>
+        </div>
+
+        <div class="group">
+          <div class="row">
+            <button class="btn grow" id="pg-layout">Tidy layout</button>
+            <button class="btn grow" id="pg-clear">Clear</button>
+          </div>
+        </div>
+      </aside>
+
+      <section class="stage">
+        <div class="stage-top">
+          <div class="legend">
+            <span class="in"><i></i>in</span>
+            <span class="out"><i></i>out</span>
+            <span class="undec"><i></i>undecided</span>
+          </div>
+          <div class="row" id="pg-stepper">
+            <button class="btn small ghost" id="pg-prev" aria-label="Previous extension">‹</button>
+            <span class="mono muted" id="pg-ext-count">1 / 1</span>
+            <button class="btn small ghost" id="pg-next" aria-label="Next extension">›</button>
+          </div>
+        </div>
+        <div class="graph" id="pg-graph"></div>
+        <div class="stage-hint" id="pg-hint"></div>
+      </section>
+
+      <aside class="side right">
+        <div class="group">
+          <span class="label" id="pg-ext-title">Grounded extension</span>
+          <div class="list" id="pg-extensions"></div>
+        </div>
+
+        <div class="group" id="pg-steps-group">
+          <div class="label-row">
+            <span class="label">Building it: F iterated from ∅</span>
+            <button class="btn small" id="pg-play">Play</button>
+          </div>
+          <div class="list steps" id="pg-steps"></div>
+        </div>
+
+        <div class="group" id="pg-set-group" hidden>
+          <span class="label">Your set S</span>
+          <div class="set" id="pg-set"></div>
+          <div style="margin-top:10px" id="pg-set-checks"></div>
+        </div>
+
+        <div class="group">
+          <span class="label">Acceptance status</span>
+          <div class="list" id="pg-status"></div>
+          <p class="hint" id="pg-status-hint"></p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- ================= Strategic game ================= -->
+  <div class="view" id="view-game">
+    <div class="workspace">
+      <aside class="side">
+        <div class="group">
+          <span class="label">Instance</span>
+          <select id="g-preset">
+            <option value="ex510">Example 5.10: x can cheat</option>
+            <option value="ex511">Example 5.11: truth wins</option>
+            <option value="random">Random instance</option>
+            <optgroup label="Saved experiment instances" id="g-saved"></optgroup>
+          </select>
+        </div>
+
+        <div class="group" id="g-random" hidden>
+          <div class="label-row">
+            <span class="label">Attack probability</span>
+            <span class="mono muted" id="g-p-val">0.20</span>
+          </div>
+          <input type="range" id="g-p" min="0.05" max="0.5" step="0.05" value="0.2">
+          <button class="btn block" id="g-roll" style="margin-top:10px">New random instance</button>
+        </div>
+
+        <div class="group">
+          <div class="label-row">
+            <span class="label">What each agent reveals</span>
+            <button class="btn small ghost" id="g-truth">All truthful</button>
+          </div>
+          <div id="g-agents"></div>
+          <p class="hint">Click an argument to hide or reveal it. Agents can hide arguments but never invent them.</p>
+        </div>
+      </aside>
+
+      <section class="stage">
+        <div class="stage-top">
+          <div class="legend">
+            <span class="in"><i></i>accepted</span>
+            <span class="out"><i></i>rejected</span>
+            <span class="hid"><i></i>hidden</span>
+            <span class="shape-x"><i></i>x</span>
+            <span class="shape-y"><i></i>y</span>
+            <span class="shape-z"><i></i>z</span>
+          </div>
+        </div>
+        <div class="graph" id="g-graph"></div>
+        <div class="stage-hint">The judge accepts the grounded extension of everything revealed</div>
+      </section>
+
+      <aside class="side right">
+        <div class="group">
+          <span class="label">Judge's decision</span>
+          <div class="outcome-big" id="g-outcome"></div>
+          <div class="muted" style="font-size:12.5px;margin-top:2px" id="g-outcome-sub"></div>
+        </div>
+
+        <div class="group">
+          <span class="label">Utility: own arguments accepted</span>
+          <table class="util">
+            <thead><tr><th>Agent</th><th>Truthful</th><th>Now</th><th>Change</th></tr></thead>
+            <tbody id="g-util"></tbody>
+          </table>
+        </div>
+
+        <div class="group">
+          <span class="label">Best response</span>
+          <div class="seg" id="g-br-agent"></div>
+          <button class="btn block" id="g-br" style="margin-top:8px">Find best response</button>
+          <p class="hint" id="g-br-out"></p>
+        </div>
+
+        <div class="group">
+          <span class="label">Theorems</span>
+          <div id="g-theorems"></div>
+        </div>
+
+        <div class="group" id="g-note-group">
+          <div class="note" id="g-note"></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- ================= Results ================= -->
+  <div class="view" id="view-results">
+    <div class="page">
+      <h2>Is truth-telling optimal?</h2>
+      <p class="lede">Theorem 5.4 gives a graph condition that guarantees strategyproofness. We tested it on 7,000 random debates and then on every small graph there is.</p>
+
+      <div class="stats" id="r-stats"></div>
+
+      <section>
+        <h3>Q1. How often is the mechanism strategyproof?</h3>
+        <p>1,000 random instances per attack probability p: 3 agents, 6–8 arguments, arguments split at random. The shaded gap is Q3: instances that are strategyproof although the condition fails.</p>
+        <div class="card chart">
+          <div class="chart-wrap" id="r-chart"></div>
+          <div class="chart-legend">
+            <span class="sp">Strategyproof (exact, Theorem 5.3)</span>
+            <span class="cd">Theorem 5.4 condition holds</span>
+            <span class="gap">Strategyproof without the condition</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Q2 and Q3, per p</h3>
+        <p>Q2 counts instances where the condition holds but an agent can still gain by hiding, which would contradict the theorem. It is zero everywhere. The walk and simple-path readings of "odd path" agreed on all 7,000 instances.</p>
+        <div class="table-scroll"><table class="data" id="r-table"></table></div>
+      </section>
+
+      <section>
+        <h3>Run it yourself</h3>
+        <p>Draw fresh instances with the same generator and check each one exactly, right here in your browser.</p>
+        <div class="card">
+          <div class="grid-2">
+            <div class="stack">
+              <div class="label-row"><span class="label">Attack probability</span><span class="mono muted" id="r-p-val">0.20</span></div>
+              <input type="range" id="r-p" min="0.05" max="0.5" step="0.05" value="0.2">
+              <div class="label-row" style="margin-top:8px"><span class="label">Instances</span><span class="mono muted" id="r-n-val">100</span></div>
+              <input type="range" id="r-n" min="20" max="500" step="20" value="100">
+              <div class="row" style="margin-top:8px">
+                <button class="btn primary" id="r-run" disabled>Run</button>
+                <div class="bar grow"><div id="r-progress"></div></div>
+              </div>
+            </div>
+            <div class="compare" id="r-live"></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Exhaustive check</h3>
+        <p>Random sampling can miss rare cases, so every directed graph on up to 5 arguments was checked together with every possible argument set for one agent.</p>
+        <div class="row" style="margin-bottom:16px">
+          <div class="seg" id="r-ex-mode" style="width:320px">
+            <button data-m="exhaustive" class="active">No self-attacks</button>
+            <button data-m="exhaustive-self-attacks">With self-attacks</button>
+          </div>
+        </div>
+        <div class="table-scroll"><table class="data" id="r-ex-table"></table></div>
+      </section>
+
+      <section>
+        <h3>Why is the condition so conservative?</h3>
+        <p>Each strategyproof instance that fails the condition gets one of three explanations. Open an example in the game to see it play out.</p>
+        <div class="grid-3" id="r-q3"></div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ================= How it works ================= -->
+  <div class="view" id="view-how">
+    <div class="page">
+      <div class="prose">
+        <h2>How it works</h2>
+        <p class="lede">A short tour of the ideas behind each tab. Everything on this site runs the project's actual Python library in your browser through Pyodide. Nothing is reimplemented in JavaScript.</p>
+
+        <h3><span class="num">01</span>Arguments and attacks</h3>
+        <p>A debate is a directed graph. Each node is an argument and each arrow says one argument <b>attacks</b> another. A set of arguments is <b>conflict-free</b> if none of them attack each other. It <b>defends</b> an argument if it attacks every attacker of that argument.</p>
+        <p>The <b>characteristic function</b> F(S) returns every argument S defends. Starting from the empty set and applying F repeatedly reaches a fixed point: the grounded extension, the arguments that are beyond reasonable doubt.</p>
+        <button class="btn small try" data-go="playground:fig51">Watch F iterate on Figure 5.1 →</button>
+
+        <h3><span class="num">02</span>Semantics</h3>
+        <p>A semantics is a rule for which sets of arguments a rational judge may accept together.</p>
+        <table class="defs">
+          <tr><td>Complete</td><td>Conflict-free and equal to F(S): it accepts exactly what it defends.</td></tr>
+          <tr><td>Grounded</td><td>The smallest complete extension. It is unique and as cautious as possible.</td></tr>
+          <tr><td>Preferred</td><td>The largest complete extensions: as bold as possible.</td></tr>
+          <tr><td>Stable</td><td>Attacks every argument it does not contain. May not exist.</td></tr>
+          <tr><td>Semi-stable</td><td>Complete, with the largest range S ∪ S⁺. It is stable whenever a stable extension exists.</td></tr>
+        </table>
+        <p>Each complete extension corresponds to a <b>labelling</b>: <span style="color:var(--in)">in</span> if all attackers are out, <span style="color:var(--out)">out</span> if some attacker is in, <span class="muted">undecided</span> otherwise. An argument is <b>skeptically accepted</b> if it is in every extension, <b>credulously accepted</b> if it is in at least one, and rejected otherwise.</p>
+        <button class="btn small try" data-go="playground:edge">See semi-stable differ from preferred →</button>
+
+        <h3><span class="num">03</span>The strategic game</h3>
+        <p>Now the arguments belong to agents. Each agent privately holds some arguments and chooses which to reveal to a judge. Agents can hide arguments but cannot invent them. The <b>grounded direct mechanism</b> accepts the grounded extension of whatever was revealed. An agent's <b>utility</b> is how many of its own arguments end up accepted.</p>
+        <p>The mechanism is <b>strategyproof</b> if revealing everything is always a best response, whatever the others do. That can fail. In Example 5.10, agent x hides α1, which lets α2 defeat α3, which frees x's arguments α4 and α5. x goes from 1 accepted argument to 2.</p>
+        <button class="btn small try" data-go="game:ex510">Try hiding α1 yourself →</button>
+
+        <h3><span class="num">04</span>The two theorems</h3>
+        <p><b>Theorem 5.3</b> is exact: the mechanism is strategyproof if and only if, for every agent and every combination of what the others reveal, truth-telling maximises utility. The engine checks this by brute force, caching grounded extensions by the set of revealed arguments.</p>
+        <p><b>Theorem 5.4</b> is a cheap sufficient condition. Write α ↪ β if there is an odd-length attack path from α to β: odd steps attack and even steps defend, so α works against β. If no agent holds both α and β with α ↪ β, the mechanism is strategyproof.</p>
+        <p>Cycles make "odd-length path" ambiguous, so both readings are implemented. <b>Walks</b> may revisit arguments and are searched over (argument, parity) states, so cycles terminate. <b>Simple paths</b> may not revisit, and are enumerated directly. With g → u, the cycle u → v → w → u, and u → t, the only simple path from g to t has length 2, but the walk g u v w u t has length 5.</p>
+        <button class="btn small try" data-go="game:ex511">See Example 5.11: the condition fails, yet truth wins →</button>
+
+        <h3><span class="num">05</span>What the experiments found</h3>
+        <ul>
+          <li><b>Q1.</b> Strategyproofness falls quickly as attacks get denser, from 96% at p = 0.05 to 3% at p = 0.5.</li>
+          <li><b>Q2.</b> The theorem held every time: no counterexample in 7,000 random instances or in over 200 million exhaustive cases, under either reading of odd path.</li>
+          <li><b>Q3.</b> The condition is very conservative. 70% of strategyproof instances fail it, mostly because hiding can rescue one argument but always costs at least one other, and utility counts arguments.</li>
+        </ul>
+        <button class="btn small try" data-go="results">Open the results →</button>
+
+        <h3><span class="num">06</span>Textbook errata</h3>
+        <p>Two misprints in Rahwan, <i>Argumentation among Agents</i> (Weiss, <i>Multiagent Systems</i>, 2nd ed., Ch. 5) were confirmed by the engine. In Example 5.10 the utilities of y and z are swapped: y holds α2 and gets 0, z holds α3 and gets 1. After Example 5.11, the argument that cancels the indirect self-defeat is α6, which attacks α3, not α5.</p>
+
+        <h3><span class="num">07</span>Under the hood</h3>
+        <p>The engine is a dependency-free Python package with 97% test coverage, type-checked with mypy. This page loads it into <a href="https://pyodide.org" target="_blank" rel="noopener">Pyodide</a> (CPython compiled to WebAssembly) and draws graphs with <a href="https://js.cytoscape.org" target="_blank" rel="noopener">Cytoscape.js</a>. The full write-up is in the <a href="../report/report.pdf" target="_blank">report</a>.</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <span>Sreenitya Thatikunta · Argumentation Engine</span>
+  <span class="links">
+    <a href="../report/report.pdf" target="_blank">Report (PDF)</a>
+    <a href="https://github.com/SreenityaThatikunta/argumentation-engine" target="_blank" rel="noopener">GitHub</a>
+  </span>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.30.2/cytoscape.min.js"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
