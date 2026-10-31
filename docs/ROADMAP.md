@@ -13,6 +13,7 @@ Status: ✅ done · 🚧 in progress · ⬜ planned · ⏸ parked
 |---|---|
 | ✅ Report | `report/report.pdf` (LaTeX source in `report/`): design, validation, experiment results, Q2/Q3 analysis with worked instances, errata |
 | ✅ Demonstration | `demo.py`: seven-section terminal walkthrough of the textbook examples, manipulation cases, experiments and exhaustive results |
+| ✅ Web demo | [Verum](https://verum.sreenitya.in) (`web/`): the library running in the browser via Pyodide, with an editable playground, the strategic game, experiment results and an explainer. Deployed on Vercel |
 | ⏸ Figure 5.3 test | Needs the edge list read from the figure |
 
 ## Priority

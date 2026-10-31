@@ -16,6 +16,9 @@ The project combines formal logic (Dung-style argumentation semantics) with
 game theory (mechanism design and strategyproofness). It then tests a published
 theorem empirically through large-scale simulations.
 
+**Live demo:** [verum.sreenitya.in](https://verum.sreenitya.in), an interactive
+version that runs the library in your browser.
+
 ---
 
 ## Overview
@@ -137,7 +140,9 @@ The two textbook misprints are pointed out where they occur. Figures are written
 
 ## Web demo: Verum
 
-**Verum** (Latin for "the truth") is an interactive version of the project that runs in the browser. The library itself runs client-side through [Pyodide](https://pyodide.org), so nothing is reimplemented in JavaScript and no backend is needed. Serve the repository root and open `/web/`:
+**Verum** (Latin for "the truth") is an interactive version of the project that runs in the browser, live at **[verum.sreenitya.in](https://verum.sreenitya.in)**. The library itself runs client-side through [Pyodide](https://pyodide.org), so nothing is reimplemented in JavaScript and no backend is needed.
+
+To run it locally, serve the repository root and open `/web/`:
 
 ```bash
 python3 -m http.server 8000
@@ -150,9 +155,13 @@ Then visit <http://localhost:8000/web/>. The first load downloads the Python run
 - **Results**: the Q1–Q3 experiment results, the exhaustive check, and a live mini-run in the browser.
 - **How it works**: a short explainer of the theory, with links into the other tabs.
 
-The page code is in [`web/`](web/): `bridge.py` exposes the library to JavaScript as JSON, and `app.js` handles the interface.
+The page code is in [`web/`](web/): `bridge.py` exposes the library to JavaScript as JSON (tested in `tests/test_web_bridge.py`), and `app.js` handles the interface. The layout adapts to phones, tablets and desktops.
 
-**Deploying.** `node web/build.mjs` packages the page, the library, the results and the report into a self-contained `site/` folder for any static host. [`vercel.json`](vercel.json) runs this build on Vercel.
+**Deploying.** `node web/build.mjs` packages the page, the library, the results and the report into a self-contained `site/` folder for any static host. [`vercel.json`](vercel.json) runs this build on Vercel. To publish changes:
+
+```bash
+vercel deploy --prod
+```
 
 ## Experiments
 
@@ -234,6 +243,7 @@ sufficient and identifies more strategyproof cases.
 - [x] Graphviz visualisation
 - [x] Demo walkthrough
 - [x] Written report
+- [x] Interactive web demo ([Verum](https://verum.sreenitya.in))
 
 See [docs/ROADMAP.md](docs/ROADMAP.md) for planned extensions.
 
@@ -253,6 +263,11 @@ experiments/
   exhaustive.py           # exhaustive verification on small graphs
   figures.py              # renders docs/figures/
 demo.py                   # guided walkthrough of the whole project
+web/                      # Verum, the browser demo
+  index.html, style.css   #   page structure and design
+  app.js                  #   interface: graphs, tabs, results chart
+  bridge.py               #   JSON bridge from JavaScript to the library (runs in Pyodide)
+  build.mjs               #   packages the site into site/ for hosting
 tests/                    # pytest suite, built from textbook examples
 results/                  # experiment outputs (CSV, JSON, plots)
 docs/                     # specification, roadmap, figures
@@ -270,6 +285,7 @@ pytest --cov=argumentation              # tests with coverage
 
 ## Documentation
 
+- [Live demo](https://verum.sreenitya.in): Verum, the interactive browser version
 - [Report (PDF)](report/report.pdf): 6-page write-up of the design, validation
   and experiment findings. Rebuild it with `cd report && latexmk -pdf report.tex`
   (figures: `python experiments/figures.py --format pdf --no-titles --plots --out report/figures`)

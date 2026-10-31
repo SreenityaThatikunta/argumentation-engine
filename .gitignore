@@ -39,3 +39,5 @@ report/*.synctex.gz
 # Built web demo (node web/build.mjs)
 site/
 .vercel/
+.vercel
+.env*
