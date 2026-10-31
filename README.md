@@ -135,9 +135,9 @@ takes a few minutes to present:
 
 The two textbook misprints are pointed out where they occur. Figures are written to `demo_output/`.
 
-## Web demo
+## Web demo: Verum
 
-An interactive version of the project that runs in the browser. The library itself runs client-side through [Pyodide](https://pyodide.org), so nothing is reimplemented in JavaScript and no backend is needed. Serve the repository root and open `/web/`:
+**Verum** (Latin for "the truth") is an interactive version of the project that runs in the browser. The library itself runs client-side through [Pyodide](https://pyodide.org), so nothing is reimplemented in JavaScript and no backend is needed. Serve the repository root and open `/web/`:
 
 ```bash
 python3 -m http.server 8000
@@ -151,6 +151,8 @@ Then visit <http://localhost:8000/web/>. The first load downloads the Python run
 - **How it works**: a short explainer of the theory, with links into the other tabs.
 
 The page code is in [`web/`](web/): `bridge.py` exposes the library to JavaScript as JSON, and `app.js` handles the interface.
+
+**Deploying.** `node web/build.mjs` packages the page, the library, the results and the report into a self-contained `site/` folder for any static host. [`vercel.json`](vercel.json) runs this build on Vercel.
 
 ## Experiments
 

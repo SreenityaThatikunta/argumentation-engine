@@ -80,7 +80,7 @@ async function bootPython() {
   } catch (err) {
     console.error(err);
     $("#loading-text").textContent =
-      "Could not start Python. Serve the repository root over HTTP (see web/README) and reload.";
+      "Could not start Python. Check your connection and reload the page.";
     return false;
   }
 }
