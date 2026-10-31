@@ -59,7 +59,6 @@ const PY_FILES = [
 let pyCall = null;
 
 async function bootPython() {
-  const status = $("#status");
   try {
     const py = await loadPyodide();
     $("#loading-text").textContent = "Loading the argumentation library";
@@ -75,15 +74,11 @@ async function bootPython() {
     py.FS.writeFile(home + "bridge.py", await fetch("bridge.py").then((r) => r.text()));
     py.runPython(`import sys; sys.path.insert(0, "${home}")\nimport bridge`);
     pyCall = py.globals.get("bridge").call;
-    status.classList.add("ready");
-    $(".txt", status).textContent = "Python ready";
     $("#loading").classList.add("done");
     document.body.classList.add("py-ready");
     return true;
   } catch (err) {
     console.error(err);
-    status.classList.add("error");
-    $(".txt", status).textContent = "Python failed to load";
     $("#loading-text").textContent =
       "Could not start Python. Serve the repository root over HTTP (see web/README) and reload.";
     return false;
@@ -161,8 +156,8 @@ function makeGraph(container) {
   return cytoscape({
     container,
     style: graphStyle(),
-    minZoom: 0.4,
-    maxZoom: 1.6,
+    minZoom: 0.3,
+    maxZoom: 1.3,
     wheelSensitivity: 0.2,
     autounselectify: true,
     boxSelectionEnabled: false,
@@ -180,10 +175,31 @@ function setElements(cy, nodes, edges, positions) {
     ...edges.map(([s, t]) => ({ group: "edges", data: { id: `${s}->${t}`, source: s, target: t } })),
   ]);
   if (positions && nodes.every((n) => positions[n.id])) {
-    cy.layout({ name: "preset", fit: true, padding: 90 }).run();
+    cy.scratch("base", positions);
+    fitGraph(cy);
   } else {
-    cy.layout({ name: "circle", fit: true, padding: 90, sort: (a, b) => natural(a.id(), b.id()) }).run();
+    cy.scratch("base", null);
+    cy.layout({ name: "circle", fit: false, sort: (a, b) => natural(a.id(), b.id()) }).run();
+    fitGraph(cy);
   }
+}
+
+/* Fit the graph to its stage. Hand-placed presets are laid out wide, so on a
+   tall, narrow stage (phones) they are turned on their side to stay readable. */
+function fitGraph(cy) {
+  const w = cy.width(), h = cy.height();
+  if (!w || !h) return;
+  const base = cy.scratch("base");
+  if (base) {
+    const xs = Object.values(base).map((p) => p.x), ys = Object.values(base).map((p) => p.y);
+    const bw = Math.max(...xs) - Math.min(...xs), bh = Math.max(...ys) - Math.min(...ys);
+    const flip = h > w * 1.1 && bw > bh * 1.3;
+    cy.nodes().forEach((n) => {
+      const p = base[n.id()];
+      if (p) n.position(flip ? { x: -p.y, y: p.x } : { ...p });
+    });
+  }
+  cy.fit(undefined, Math.round(Math.max(24, Math.min(90, Math.min(w, h) * 0.12))));
 }
 
 function applyLabelling(cy, labelling) {
@@ -200,13 +216,14 @@ function applyLabelling(cy, labelling) {
 }
 
 function tidy(cy) {
+  cy.scratch("base", null);
   cy.layout({
     name: "cose",
     animate: true,
     animationDuration: 400,
     randomize: false,
     fit: true,
-    padding: 90,
+    padding: Math.round(Math.max(24, Math.min(90, Math.min(cy.width(), cy.height()) * 0.12))),
     nodeRepulsion: () => 90000,
     idealEdgeLength: () => 110,
   }).run();
@@ -475,6 +492,7 @@ function initPlayground() {
   cy.on("tap", (e) => {
     if (pg.mode !== "edit" || e.target !== cy) return;
     pgClearPick();
+    cy.scratch("base", null);
     const id = pgNextId();
     pg.args.push(id);
     cy.add({ group: "nodes", data: { id, label: greek(id), agent: "" }, position: { ...e.position } });
@@ -501,6 +519,8 @@ function initPlayground() {
       pgUpdate();
     }
   });
+
+  cy.on("dragfree", "node", () => cy.scratch("base", null));
 
   cy.on("dbltap", "node", (e) => {
     if (pg.mode !== "edit") return;
@@ -1115,7 +1135,7 @@ function show(view) {
   const cy = view === "playground" ? pg.cy : view === "game" ? game.cy : null;
   if (cy) {
     cy.resize();
-    cy.fit(undefined, 90);
+    fitGraph(cy);
   }
   if (history.replaceState) history.replaceState(null, "", `#${view}`);
   window.scrollTo(0, 0);
@@ -1140,7 +1160,7 @@ function initNav() {
   window.addEventListener("resize", () => {
     clearTimeout(t);
     t = setTimeout(() => {
-      for (const cy of [pg.cy, game.cy]) if (cy && cy.width()) cy.fit(undefined, 90);
+      for (const cy of [pg.cy, game.cy]) if (cy && cy.width()) fitGraph(cy);
     }, 150);
   });
 }
